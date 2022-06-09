@@ -1,0 +1,66 @@
+<div class="formContainer">
+    <form [formGroup]="LoginForm" (ngSubmit)="onsubmit()">
+        <div class="formcontrolContainer">
+            <div class="formControl">
+                <label>FirstName:</label>
+                <input type="text" formControlName="FirstName"
+                    [ngClass]="{'invalidControl':submitted && LoginForm.controls.FirstName.errors}" />
+            </div>
+            <div *ngIf="submitted && LoginForm.controls.FirstName.errors" class="invalidMessageContainer">
+                <div *ngIf=" LoginForm.controls.FirstName.errors.required">First Name is required.</div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="formcontrolContainer">
+            <div class="formControl">
+                <label>LastName:</label>
+                <input type="text" formControlName="LastName"
+                    [ngClass]="{'invalidControl':submitted && LoginForm.controls.LastName.errors}" />
+            </div>
+            <div *ngIf="submitted && LoginForm.controls.LastName.errors" class="invalidMessageContainer">
+                <div *ngIf="LoginForm.controls.LastName.errors.required">Last Name is required.</div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="formcontrolContainer">
+            <div class="formControl">
+                <label>Email:</label>
+                <input type="text" formControlName="email"
+                    [ngClass]="{'invalidControl':submitted && LoginForm.controls.email.errors}" />
+            </div>
+            <div *ngIf="submitted && LoginForm.controls.email.errors" class="invalidMessageContainer">
+                <div *ngIf="LoginForm.controls.email.errors.required">Email is required.</div>
+                <div *ngIf="LoginForm.controls.email.errors.email">Enter Valid Email .</div>
+
+            </div>
+        </div>
+        
+
+        
+        <br>
+        <br>
+        <div class="formcontrolContainer">
+            <div class="formControl">
+                <label>Password:</label>
+                <input type="password" formControlName="Password"
+                    [ngClass]="{'invalidControl':submitted && LoginForm.controls.password.errors}" />
+            </div>
+            <div *ngIf="submitted && LoginForm.controls.password.errors" class="invalidMessageContainer">
+                <div *ngIf="LoginForm.controls.password.errors.required">Email is required.</div>
+                <div *ngIf="LoginForm.controls.password.errors.minLength">Password must be at least 6 characters .</div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+
+
+
+        <div class="buttonContainer">
+            <button class="btn btn-primary mr-1">Login</button>
+        </div>
+    </form>
+</div>
